@@ -25,6 +25,7 @@ https://github.com/serverless/examples/tree/master/aws-node-rest-api-with-dynamo
 - lambdaHashingVersion: 20201221
 - region: ap-northeast-1
 
+## 以下 オリジナルの README
 
 This example demonstrates how to setup a [RESTful Web Services](https://en.wikipedia.org/wiki/Representational_state_transfer#Applied_to_web_services) allowing you to create, list, get, update and delete Todos. DynamoDB is used to store the data. This is just an example and of course you could use any data storage as a backend.
 
