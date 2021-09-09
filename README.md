@@ -12,6 +12,20 @@ authorAvatar: 'https://avatars3.githubusercontent.com/u/8954908?v=4&s=140'
 -->
 # Serverless REST API
 
+SeverlessFramework の公式サンプル AWS + Node + DynamoDB の改良版です。
+
+https://github.com/serverless/examples/tree/master/aws-node-rest-api-with-dynamodb
+
+## 変更点
+
+ざっとですが、変更点は以下。
+
+- frameworkVersion: ">=1.1.0 <=2.57.0"
+- runtime: nodejs14.x
+- lambdaHashingVersion: 20201221
+- region: ap-northeast-1
+
+
 This example demonstrates how to setup a [RESTful Web Services](https://en.wikipedia.org/wiki/Representational_state_transfer#Applied_to_web_services) allowing you to create, list, get, update and delete Todos. DynamoDB is used to store the data. This is just an example and of course you could use any data storage as a backend.
 
 ## Structure
