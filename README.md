@@ -20,10 +20,10 @@ https://github.com/serverless/examples/tree/master/aws-node-rest-api-with-dynamo
 
 ざっとですが、変更点は以下。
 
-- frameworkVersion: ">=1.1.0 <=2.57.0"
-- runtime: nodejs14.x
-- lambdaHashingVersion: 20201221
-- region: ap-northeast-1
+- `frameworkVersion: ">=1.1.0 <=2.57.0"`
+- `runtime: nodejs14.x`
+- `lambdaHashingVersion: 20201221`
+- `region: ap-northeast-1`
 
 ## 以下 オリジナルの README
 
