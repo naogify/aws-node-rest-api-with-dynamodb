@@ -23,13 +23,14 @@ npm install
 ## デプロイ
 
 ```bash
-serverless deploy
+npm run deploy:dev
+npm run deploy:v1
 ```
 
 ## 削除
 
 ```bash
-serverless remove
+npm run remove
 ```
 
 ## 使い方

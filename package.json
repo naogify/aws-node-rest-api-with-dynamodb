@@ -4,6 +4,11 @@
   "description": "Serverless CRUD service exposing a REST HTTP interface",
   "author": "",
   "license": "MIT",
+  "scripts": {
+    "deploy:dev": "sls deploy --stage=dev",
+    "deploy:v1": "sls deploy --stage=v1",
+    "deploy:remove": "sls remove -v"
+  },
   "dependencies": {
     "aws-sdk": "^2.1009.0",
     "uuid": "^2.0.3"
