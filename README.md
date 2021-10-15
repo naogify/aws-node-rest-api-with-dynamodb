@@ -40,20 +40,10 @@ serverless remove
 curl -X POST https://XXXXXXX.execute-api.us-east-1.amazonaws.com/dev/todos --data '{ "text": "Learn Serverless" }'
 ```
 
-Example Result:
-```bash
-{"text":"Learn Serverless","id":"ee6490d0-aa11e6-9ede-afdfa051af86","createdAt":1479138570824,"checked":false,"updatedAt":1479138570824}%
-```
-
 ### 全ての Todo を取得
 
 ```bash
 curl https://XXXXXXX.execute-api.us-east-1.amazonaws.com/dev/todos
-```
-
-Example output:
-```bash
-[{"text":"Deploy my first service","id":"ac90feaa11e6-9ede-afdfa051af86","checked":true,"updatedAt":1479139961304},{"text":"Learn Serverless","id":"206793aa11e6-9ede-afdfa051af86","createdAt":1479139943241,"checked":false,"updatedAt":1479139943241}]%
 ```
 
 ### Todo を指定して取得
@@ -63,21 +53,11 @@ Example output:
 curl https://XXXXXXX.execute-api.us-east-1.amazonaws.com/dev/todos/<id>
 ```
 
-Example Result:
-```bash
-{"text":"Learn Serverless","id":"ee6490d0-aa11e6-9ede-afdfa051af86","createdAt":1479138570824,"checked":false,"updatedAt":1479138570824}%
-```
-
 ### Todo を更新
 
 ```bash
 # Replace the <id> part with a real id from your todos table
 curl -X PUT https://XXXXXXX.execute-api.us-east-1.amazonaws.com/dev/todos/<id> --data '{ "text": "Learn Serverless", "checked": true }'
-```
-
-Example Result:
-```bash
-{"text":"Learn Serverless","id":"ee6490d0-aa11e6-9ede-afdfa051af86","createdAt":1479138570824,"checked":true,"updatedAt":1479138570824}%
 ```
 
 ### Todo を削除
