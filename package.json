@@ -7,7 +7,7 @@
   "scripts": {
     "deploy:dev": "sls deploy --stage=dev",
     "deploy:v1": "sls deploy --stage=v1",
-    "deploy:remove": "sls remove -v"
+    "remove": "sls remove --verbose"
   },
   "dependencies": {
     "aws-sdk": "^2.1009.0",
