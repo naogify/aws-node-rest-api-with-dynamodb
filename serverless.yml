@@ -1,6 +1,6 @@
 service: serverless-starter-kit
 
-frameworkVersion: ">=1.1.0 <=2.63.0"
+frameworkVersion: ">=1.1.0 <=2.69.1"
 
 plugins:
   - serverless-export-env
@@ -36,20 +36,22 @@ provider:
         - OPTIONS
       allowedOrigins:
         - ${env:AUTH0_ALLOWED_ORIGIN}
-    payload: '2.0'
     authorizers:
       auth0Authorizer:
+        type: jwt
         identitySource: $request.header.Authorization
         issuerUrl: ${env:AUTH0_ISSUE_URL}
         audience: ${env:AUTH0_AUDIENCE}
+  logs:
+    httpApi: true
 
 functions:
   create:
     handler: todos/create.create
     events:
       - httpApi:
-          path: todos
-          method: post
+          path: /todos
+          method: POST
           authorizer:
             name: auth0Authorizer
 
@@ -57,8 +59,8 @@ functions:
     handler: todos/list.list
     events:
       - httpApi:
-          path: todos
-          method: get
+          path: /todos
+          method: GET
           authorizer:
             name: auth0Authorizer
 
@@ -66,8 +68,8 @@ functions:
     handler: todos/get.get
     events:
       - httpApi:
-          path: todos/{id}
-          method: get
+          path: /todos/{id}
+          method: GET
           authorizer:
             name: auth0Authorizer
 
@@ -75,8 +77,8 @@ functions:
     handler: todos/update.update
     events:
       - httpApi:
-          path: todos/{id}
-          method: put
+          path: /todos/{id}
+          method: PUT
           authorizer:
             name: auth0Authorizer
 
@@ -84,8 +86,8 @@ functions:
     handler: todos/delete.delete
     events:
       - httpApi:
-          path: todos/{id}
-          method: delete
+          path: /todos/{id}
+          method: DELETE
           authorizer:
             name: auth0Authorizer
 
