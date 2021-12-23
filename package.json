@@ -12,5 +12,9 @@
   "dependencies": {
     "aws-sdk": "^2.1009.0",
     "uuid": "^2.0.3"
+  },
+  "devDependencies": {
+    "serverless": "^2.69.1",
+    "serverless-export-env": "^2.0.0"
   }
 }

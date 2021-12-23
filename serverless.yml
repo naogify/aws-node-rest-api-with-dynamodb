@@ -2,6 +2,9 @@ service: serverless-starter-kit
 
 frameworkVersion: ">=1.1.0 <=2.63.0"
 
+plugins:
+  - serverless-export-env
+
 provider:
   name: aws
   runtime: nodejs14.x
@@ -20,47 +23,71 @@ provider:
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
       Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.DYNAMODB_TABLE}"
+  httpApi:
+    cors:
+      allowedHeaders:
+        - Content-Type
+        - Authorization
+      allowedMethods:
+        - GET
+        - POST
+        - PUT
+        - DELETE
+        - OPTIONS
+      allowedOrigins:
+        - ${env:AUTH0_ALLOWED_ORIGIN}
+    payload: '2.0'
+    authorizers:
+      auth0Authorizer:
+        identitySource: $request.header.Authorization
+        issuerUrl: ${env:AUTH0_ISSUE_URL}
+        audience: ${env:AUTH0_AUDIENCE}
 
 functions:
   create:
     handler: todos/create.create
     events:
-      - http:
+      - httpApi:
           path: todos
           method: post
-          cors: true
+          authorizer:
+            name: auth0Authorizer
 
   list:
     handler: todos/list.list
     events:
-      - http:
+      - httpApi:
           path: todos
           method: get
-          cors: true
+          authorizer:
+            name: auth0Authorizer
 
   get:
     handler: todos/get.get
     events:
-      - http:
+      - httpApi:
           path: todos/{id}
           method: get
-          cors: true
+          authorizer:
+            name: auth0Authorizer
 
   update:
     handler: todos/update.update
     events:
-      - http:
+      - httpApi:
           path: todos/{id}
           method: put
-          cors: true
+          authorizer:
+            name: auth0Authorizer
 
   delete:
     handler: todos/delete.delete
     events:
-      - http:
+      - httpApi:
           path: todos/{id}
           method: delete
-          cors: true
+          authorizer:
+            name: auth0Authorizer
 
 resources:
   Resources:
